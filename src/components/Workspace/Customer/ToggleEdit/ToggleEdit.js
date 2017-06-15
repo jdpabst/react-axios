@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ToggleEdit.css';
 
+import { dispatchUpdateCustomer } from '../../../../services/workspaceService';
+
 export default class ToggleEdit extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +25,7 @@ export default class ToggleEdit extends Component {
   }
 
   save() {
+    dispatchUpdateCustomer( this.props.id, {[this.props.property]: this.state.val})
     this.setState({ editting: !this.state.editting });
   }
 
